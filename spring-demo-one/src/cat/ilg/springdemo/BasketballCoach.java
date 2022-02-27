@@ -2,10 +2,32 @@ package cat.ilg.springdemo;
 
 public class BasketballCoach implements Coach{
 
+    private String emailAddress;
+
+    private String team;
+
     private GameStatsService gameStatsService;
 
     public BasketballCoach(GameStatsService gameStatsService){
         this.gameStatsService = gameStatsService;
+    }
+
+    // Getters
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+    public String getTeam() {
+        return team;
+    }
+
+    // Setters
+    public void setEmailAddress(String emailAddress) {
+        System.out.println("Basket coach: dins del setter de l'email.");
+        this.emailAddress = emailAddress;
+    }
+    public void setTeam(String team) {
+        System.out.println("Basket coach: dins del setter de team.");
+        this.team = team;
     }
 
     @Override

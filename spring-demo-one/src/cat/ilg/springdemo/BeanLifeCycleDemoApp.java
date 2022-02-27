@@ -4,7 +4,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class BeanLifeCycleDemoApp {
     public static void main(String[] args) {
-        
+
         // Carregar fitxer de configuracio
         ClassPathXmlApplicationContext context =
                 new ClassPathXmlApplicationContext("beanScope-applicationContext.xml");

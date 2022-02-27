@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Load the properties file -->
+    <context:property-placeholder location="classpath:sports.properties"/>
 
     <!-- Basketball -->
     <!-- Definim la dependencia -->
@@ -13,6 +17,8 @@
           class="cat.ilg.springdemo.BasketballCoach">
         <!-- Set the constructor injection -->
         <constructor-arg ref="myBasketGameStats"/>
+        <property name="emailAddress" value="${foo.emailAddress}"/>
+        <property name="team" value="${foo.team}"/>
     </bean>
 
     <!-- Gym -->
@@ -34,7 +40,8 @@
 
     <bean id="mySkateCoach"
           class="cat.ilg.springdemo.SkateCoach">
-        <constructor-arg ref="mySkateGameStats"/>
+        <!-- Set the setter injection -->
+        <property name="gameStatsService" ref="mySkateGameStats"/>
     </bean>
 
 </beans>

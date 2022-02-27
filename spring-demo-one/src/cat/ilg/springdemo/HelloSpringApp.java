@@ -11,16 +11,20 @@ public class HelloSpringApp {
                 new ClassPathXmlApplicationContext("applicationContext.xml");
 
         // Obtenir el bean del contenidor
-        Coach bCoach = context.getBean("myBasketCoach", Coach.class);
-        Coach gCoach = context.getBean("myGymCoach", Coach.class);
-        Coach sCoach = context.getBean("mySkateCoach", Coach.class);
+        BasketballCoach bCoach = context.getBean("myBasketCoach", BasketballCoach.class);
 
         // Cridar els metodes al bean
         System.out.println(bCoach.getDailyPractice());
 
-        System.out.println(bCoach.getLastGameStats());
-        System.out.println(gCoach.getLastGameStats());
-        System.out.println(sCoach.getLastGameStats());
+        System.out.println(bCoach.getEmailAddress());
+        System.out.println(bCoach.getTeam());
+
+
+
+        System.out.println("----------------------------");
+
+        Coach sCoach = context.getBean("mySkateCoach", Coach.class);
+        System.out.println(sCoach.getDailyPractice());
 
         // Tanquem el contexte
         context.close();
