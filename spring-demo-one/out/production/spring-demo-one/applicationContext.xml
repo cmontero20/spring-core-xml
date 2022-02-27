@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Basketball -->
+    <!-- Definim la dependencia -->
+    <bean id="myBasketGameStats"
+          class="cat.ilg.springdemo.BasketballGameStatsService">
+    </bean>
+
+    <bean id="myBasketCoach"
+          class="cat.ilg.springdemo.BasketballCoach">
+        <!-- Set the constructor injection -->
+        <constructor-arg ref="myBasketGameStats"/>
+    </bean>
+
+    <!-- Gym -->
+    <!-- Definim la dependencia -->
+    <bean id="myGymGameStats"
+          class="cat.ilg.springdemo.GymGameStatsService">
+    </bean>
+
+    <bean id="myGymCoach"
+          class="cat.ilg.springdemo.GymCoach">
+        <constructor-arg ref="myGymGameStats"/>
+    </bean>
+
+    <!-- Skate -->
+    <!-- Definim la dependencia -->
+    <bean id="mySkateGameStats"
+          class="cat.ilg.springdemo.SkateGameStatsService">
+    </bean>
+
+    <bean id="mySkateCoach"
+          class="cat.ilg.springdemo.SkateCoach">
+        <constructor-arg ref="mySkateGameStats"/>
+    </bean>
+
+</beans>
